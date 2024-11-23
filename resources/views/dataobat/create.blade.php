@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for="golongan_obat">Golongan Obat</label>
-            <select name="golongan_ob at" class="form-control" required>
+            <select name="golongan_obat" class="form-control" required>
                 <option value="" selected disabled>Pilih Golongan Obat</option>
                 <option value="Obat Bebas">Obat Bebas</option>
                 <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>

@@ -26,7 +26,7 @@
         <tbody>
             @foreach($dataObat as $obat)
             <tr>
-                <td>{{$obat->id}}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $obat->nama_obat }}</td>
                 <td>{{ $obat->golongan_obat }}</td>
                 <td>{{ $obat->kategori->nama_kategori }}</td>
@@ -50,7 +50,5 @@
             @endforeach
         </tbody>
     </table>
-
 </div>
-
 @endsection

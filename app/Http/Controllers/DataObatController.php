@@ -31,6 +31,9 @@ class DataObatController extends Controller
      */
     public function store(Request $request)
     {
+        // // Debug input data
+        // dd($request->all()); // Tambahkan ini untuk melihat data yang dikirim
+
         // Validasi input
         $request->validate([
             'nama_obat' => 'required|string|max:255',
@@ -42,9 +45,20 @@ class DataObatController extends Controller
             'stok' => 'required|integer',
         ]);
 
-        DataObat::create($request->all()); // Simpan data obat
-        return redirect()->route('dataobat.index')->with('success', 'Data obat berhasil ditambahkan.'); // Redirect dengan pesan sukses
+        // Simpan data ke database
+        DataObat::create([
+            'nama_obat' => $request->nama_obat,
+            'golongan_obat' => $request->golongan_obat,
+            'kategori_id' => $request->kategori_id,
+            'kadaluwarsa' => $request->kadaluwarsa,
+            'produsen' => $request->produsen,
+            'harga_satuan' => $request->harga_satuan,
+            'stok' => $request->stok,
+        ]);
+
+        return redirect()->route('dataobat.index')->with('success', 'Data obat berhasil ditambahkan.');
     }
+
 
     /**
      * Display the specified resource.
